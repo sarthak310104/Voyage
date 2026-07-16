@@ -54,6 +54,12 @@ public class ItineraryController {
         itineraryService.delete(trip, itemId);
         return ResponseEntity.noContent().build();
     }
+    @DeleteMapping
+    public ResponseEntity<Void> clearAll(Authentication authentication, @PathVariable String tripId) {
+        Trip trip = accessibleTrip(authentication, tripId);
+        itineraryService.clearAll(trip);
+        return ResponseEntity.noContent().build();
+    }
 
     @PostMapping("/optimize")
     public OptimizeResponse optimize(Authentication authentication, @PathVariable String tripId) {

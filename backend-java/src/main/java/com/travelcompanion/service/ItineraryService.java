@@ -78,6 +78,13 @@ public class ItineraryService {
         }
         itineraryItemRepository.delete(item);
     }
+    
+    /** Removes every itinerary item for this trip — used before a fresh
+     * AI-generate so it replaces the itinerary instead of stacking a new
+     * batch on top of whatever was already there. */
+    public void clearAll(Trip trip) {
+        itineraryItemRepository.deleteAll(itineraryItemRepository.findByTripOrderByDayAscSortOrderAsc(trip));
+    }
 
     /**
      * Reorders each day's items by nearest-neighbor distance starting from

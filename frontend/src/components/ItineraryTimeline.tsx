@@ -26,6 +26,12 @@ export function ItineraryTimeline({ trip }: { trip: Trip }) {
   );
 
   const generateWithAi = async () => {
+    if (items.length > 0) {
+      const confirmed = window.confirm(
+        'This replaces your current itinerary (including anything added from Recommendations) with a freshly generated one. Continue?'
+      );
+      if (!confirmed) return;
+    }
     setGenerating(true);
     setGenError(null);
     try {
@@ -34,6 +40,9 @@ export function ItineraryTimeline({ trip }: { trip: Trip }) {
         days,
         interests: interests.split(',').map((s) => s.trim()).filter(Boolean)
       });
+      if (items.length > 0) {
+        await api.clearItinerary(trip.id);
+      }
       const created: ItineraryItem[] = [];
       for (const day of itinerary) {
         const item = await api.addItineraryItem(trip.id, {
@@ -45,7 +54,8 @@ export function ItineraryTimeline({ trip }: { trip: Trip }) {
         });
         created.push(item);
       }
-      setItems((prev) => [...prev, ...created]);
+      setItems(created);
+      setDistances({});
     } catch (e) {
       setGenError(e instanceof Error ? e.message : 'Could not generate an itinerary — try again.');
     } finally {

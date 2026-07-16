@@ -140,6 +140,7 @@ export const api = {
     core<ItineraryItem>(`/trips/${tripId}/itinerary`, { method: 'POST', body: JSON.stringify(item) }),
   deleteItineraryItem: (tripId: string, itemId: string) =>
     core<void>(`/trips/${tripId}/itinerary/${itemId}`, { method: 'DELETE' }),
+  clearItinerary: (tripId: string) => core<void>(`/trips/${tripId}/itinerary`, { method: 'DELETE' }),
   optimizeItinerary: (tripId: string) =>
     core<OptimizeResponse>(`/trips/${tripId}/itinerary/optimize`, { method: 'POST' }),
 

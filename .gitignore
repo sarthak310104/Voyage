@@ -15,5 +15,5 @@ ai-service/.venv/
 # Env files
 .env
 **/.env
-
+.env.example
 .DS_Store
