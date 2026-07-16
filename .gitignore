@@ -1,0 +1,19 @@
+# Node
+node_modules/
+.next/
+frontend/.env*.local
+
+# Java
+backend-java/target/
+
+# Python
+ai-service/__pycache__/
+ai-service/**/__pycache__/
+ai-service/.venv/
+*.pyc
+
+# Env files
+.env
+**/.env
+
+.DS_Store

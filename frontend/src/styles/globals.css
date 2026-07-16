@@ -1,0 +1,69 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+body {
+  background: #FAF6EF;
+}
+
+.card {
+  background: white;
+  border-radius: 18px;
+  box-shadow: 0 2px 14px rgba(20, 33, 61, 0.06);
+}
+
+.btn-primary {
+  background: #FF6B4A;
+  color: white;
+  border-radius: 999px;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+  transition: background 0.15s;
+}
+.btn-primary:hover {
+  background: #E1502F;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 1px solid #14213D;
+  color: #14213D;
+  border-radius: 999px;
+  padding: 0.6rem 1.4rem;
+  font-weight: 600;
+}
+
+.input-field {
+  border: 1px solid #E3D5BE;
+  border-radius: 12px;
+  padding: 0.6rem 0.9rem;
+  width: 100%;
+  background: white;
+}
+.input-field:focus {
+  outline: none;
+  border-color: #FF6B4A;
+}
+.chat-markdown p { margin: 0 0 0.5em; }
+.chat-markdown p:last-child { margin-bottom: 0; }
+.chat-markdown ul, .chat-markdown ol { margin: 0.3em 0 0.5em; padding-left: 1.25em; }
+.chat-markdown ul { list-style: disc; }
+.chat-markdown ol { list-style: decimal; }
+.chat-markdown li { margin-bottom: 0.2em; }
+.chat-markdown strong { font-weight: 700; color: #14213D; }
+.chat-markdown h1, .chat-markdown h2, .chat-markdown h3 {
+  font-weight: 700;
+  margin: 0.4em 0 0.3em;
+  font-size: 1em;
+}
+.chat-markdown code {
+  background: #E3D5BE;
+  padding: 1px 4px;
+  border-radius: 4px;
+  font-size: 0.9em;
+}
+.chat-markdown a { color: #FF6B4A; text-decoration: underline; }
